@@ -1,0 +1,18 @@
+{
+  "name": "bird-box",
+  "version": "0.0.1",
+  "description": "🐦💬 Update a gist to contain your latest tweets",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Matan Kushner <hello@matchai.me>",
+  "license": "ISC",
+  "dependencies": {
+    "@octokit/rest": "^16.18.1",
+    "date-fns": "^2.0.0-alpha.27",
+    "dotenv": "^7.0.0",
+    "twitter": "^1.7.1",
+    "wordwrap": "^1.0.0"
+  }
+}
