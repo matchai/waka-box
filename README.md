@@ -8,19 +8,26 @@
 
 ## Setup
 
-Create a GitHub Gist and create a token with the `gist` scope.
+### Prep work
 
-Register a Twitter app and create a `.env` file:
+1. Create a new public GitHub Gist (https://gist.github.com/)
+1. Create a token with the `gist` scope and copy it. (https://github.com/settings/tokens/new)
+1. Create a new Twitter app (https://developer.twitter.com/en/apps/create)
+1. On the App page for your newly created app, generate an "Access token & access token secret" and copy all keys and tokens.
 
-```
-GIST_ID=
-GITHUB_TOKEN=
+### Project setup
 
-TWITTER_USER=
-TWITTER_CONSUMER_KEY=
-TWITTER_CONSUMER_SECRET=
-TWITTER_ACCESS_TOKEN_KEY=
-TWITTER_ACCESS_TOKEN_SECRET=
-```
+1. Fork this repo
+1. Log into CircleCI with your GitHub (https://circleci.com/vcs-authorize/)
+1. Click on "Add Projects" on the sidebar
+1. Set up a project with the newly created fork
+1. Go to Project Settings > Environment Variables
+1. Add the following environment variables:
 
-Adjust poll rate in `.circleci/config.yml`.
+- **GIST_ID:** The ID portion from your gist url <code>https://gist.github.com/matchai/<b>6d5f84419863089a167387da62dd7081</b></code>.
+- **GITHUB_TOKEN:** The GitHub token generated above.
+- **TWITTER_USER:** The user handle of the twitter account.
+- **TWITTER_CONSUMER_KEY:** Your Twitter consumer API key.
+- **TWITTER_CONSUMER_SECRET:** Your Twitter consumer secret.
+- **TWITTER_ACCESS_TOKEN_KEY:** Your Twitter access token key.
+- **TWITTER_ACCESS_TOKEN_SECRET:** Your Twitter access token secret.
