@@ -24,7 +24,7 @@
 1. Go to Project Settings > Environment Variables
 1. Add the following environment variables:
 
-- **GIST_ID:** The ID portion from your gist url <code>https://gist.github.com/matchai/<b>6d5f84419863089a167387da62dd7081</b></code>.
+- **GIST_ID:** The ID portion from your gist url `https://gist.github.com/matchai/`**`6d5f84419863089a167387da62dd7081`**.
 - **GITHUB_TOKEN:** The GitHub token generated above.
 - **TWITTER_USER:** The user handle of the twitter account.
 - **TWITTER_CONSUMER_KEY:** Your Twitter consumer API key.
