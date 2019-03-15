@@ -51,7 +51,7 @@ async function updateGist(tweet) {
       gist_id: gistId,
       files: {
         [filename]: {
-          'filename': `🐦 @${twitterHandle} - ${timeAgo} ago`,
+          'filename': `@${twitterHandle} - ${timeAgo} ago | ❤ ${tweet.favorite_count} | 🔁 ${tweet.retweet_count}`,
           content: wrap(tweet.text)
         }
       }
