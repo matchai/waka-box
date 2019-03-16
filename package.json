@@ -2,10 +2,6 @@
   "name": "bird-box",
   "version": "0.0.1",
   "description": "🐦💬 Update a gist to contain your latest tweets",
-  "main": "index.js",
-  "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
-  },
   "author": "Matan Kushner <hello@matchai.me>",
   "license": "ISC",
   "dependencies": {
@@ -14,5 +10,15 @@
     "dotenv": "^7.0.0",
     "twitter": "^1.7.1",
     "wordwrap": "^1.0.0"
+  },
+  "devDependencies": {
+    "husky": "^1.3.1",
+    "prettier": "^1.16.4",
+    "pretty-quick": "^1.10.0"
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "pretty-quick --staged"
+    }
   }
 }
