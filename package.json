@@ -6,9 +6,9 @@
   "license": "ISC",
   "dependencies": {
     "@octokit/rest": "^16.18.1",
-    "date-fns": "^2.0.0-alpha.27",
+    "axios": "^0.18.0",
     "dotenv": "^7.0.0",
-    "twitter": "^1.7.1",
+    "wakatime-client": "^2.0.2",
     "wordwrap": "^1.0.0"
   },
   "devDependencies": {

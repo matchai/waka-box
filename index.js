@@ -1,40 +1,24 @@
 require("dotenv").config();
-const Twitter = require("twitter");
+const { WakaTimeClient, RANGE } = require("wakatime-client");
 const Octokit = require("@octokit/rest");
 const wordwrap = require("wordwrap");
-const { formatDistanceStrict } = require("date-fns");
 
 const {
-  TWITTER_USER: twitterHandle,
   GIST_ID: gistId,
-  TWITTER_CONSUMER_KEY: consumerKey,
-  TWITTER_CONSUMER_SECRET: consumerSecret,
-  TWITTER_ACCESS_TOKEN_KEY: accessTokenKey,
-  TWITTER_ACCESS_TOKEN_SECRET: accessTokenSecret,
-  GITHUB_TOKEN: githubToken
+  GITHUB_TOKEN: githubToken,
+  WAKATIME_API_KEY: wakatimeApiKey
 } = process.env;
 
-const twitter = new Twitter({
-  consumer_key: consumerKey,
-  consumer_secret: consumerSecret,
-  access_token_key: accessTokenKey,
-  access_token_secret: accessTokenSecret
-});
+const wakatime = new WakaTimeClient(wakatimeApiKey);
 
 const octokit = new Octokit({
   auth: `token ${githubToken}`
 });
 
 async function main() {
-  const timeline = await twitter.get("statuses/user_timeline", {
-    screen_name: twitterHandle,
-    count: 1,
-    trim_user: 1,
-    exclude_replies: true
-  });
-
-  const tweet = timeline[0];
-  await updateGist(tweet);
+  const stats = await wakatime.getMyStats({ range: RANGE.LAST_7_DAYS });
+  console.log(stats.data.languages);
+  // await updateGist(tweet);
 }
 
 async function updateGist(tweet) {
