@@ -26,20 +26,25 @@ async function updateGist(stats) {
   } catch (error) {
     console.error(`Unable to get gist\n${error}`);
   }
-  // Get original filename to update that same file
-  const filename = Object.keys(gist.data.files)[0];
 
   const lines = [];
   for (let i = 0; i < 5; i++) {
     const data = stats.data.languages[i];
-    const name = data.name.padEnd(10);
-    const percent = data.percent;
-    const time = data.text;
+    const { name, percent, text: time } = data;
 
-    lines.push(`${name} - ${time}`);
+    const line = [
+      name.padEnd(11),
+      time.padEnd(14),
+      generateBarChart(percent, 12),
+      String(percent.toFixed(1)).padStart(5) + "%"
+    ];
+
+    lines.push(line.join(" "));
   }
 
   try {
+    // Get original filename to update that same file
+    const filename = Object.keys(gist.data.files)[0];
     await octokit.gists.update({
       gist_id: gistId,
       files: {
@@ -52,6 +57,13 @@ async function updateGist(stats) {
   } catch (error) {
     console.error(`Unable to update gist\n${error}`);
   }
+}
+
+function generateBarChart(percent, size) {
+  const empty = "░";
+  const full = "█";
+  const barsFull = Math.round(size * (percent / 100));
+  return full.repeat(barsFull).padEnd(size, empty);
 }
 
 (async () => {
