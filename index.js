@@ -1,7 +1,6 @@
 require("dotenv").config();
 const { WakaTimeClient, RANGE } = require("wakatime-client");
 const Octokit = require("@octokit/rest");
-const wordwrap = require("wordwrap");
 
 const {
   GIST_ID: gistId,
@@ -17,13 +16,10 @@ const octokit = new Octokit({
 
 async function main() {
   const stats = await wakatime.getMyStats({ range: RANGE.LAST_7_DAYS });
-  console.log(stats.data.languages);
-  // await updateGist(tweet);
+  await updateGist(stats);
 }
 
-async function updateGist(tweet) {
-  const wrap = wordwrap(46);
-
+async function updateGist(stats) {
   let gist;
   try {
     gist = await octokit.gists.get({ gist_id: gistId });
@@ -32,18 +28,24 @@ async function updateGist(tweet) {
   }
   // Get original filename to update that same file
   const filename = Object.keys(gist.data.files)[0];
-  const parsedDate = new Date(tweet.created_at);
-  const timeAgo = formatDistanceStrict(parsedDate, new Date());
+
+  const lines = [];
+  for (let i = 0; i < 5; i++) {
+    const data = stats.data.languages[i];
+    const name = data.name.padEnd(10);
+    const percent = data.percent;
+    const time = data.text;
+
+    lines.push(`${name} - ${time}`);
+  }
 
   try {
     await octokit.gists.update({
       gist_id: gistId,
       files: {
         [filename]: {
-          filename: `@${twitterHandle} - ${timeAgo} ago | ❤ ${
-            tweet.favorite_count
-          } | 🔁 ${tweet.retweet_count}`,
-          content: wrap(tweet.text)
+          filename: `📊 Weekly development breakdown`,
+          content: lines.join("\n")
         }
       }
     });
