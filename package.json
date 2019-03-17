@@ -1,7 +1,7 @@
 {
-  "name": "bird-box",
+  "name": "waka-box",
   "version": "0.0.1",
-  "description": "🐦💬 Update a gist to contain your latest tweets",
+  "description": "📊 Update a gist to contain your weekly WakaTime stats",
   "author": "Matan Kushner <hello@matchai.me>",
   "license": "ISC",
   "dependencies": {
