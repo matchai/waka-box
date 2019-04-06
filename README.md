@@ -6,6 +6,8 @@
 
 ---
 
+> 📌✨ For more pinned-gist projects like this one, check out: https://github.com/matchai/awesome-pinned-gists
+
 ## Setup
 
 ### Prep work
@@ -18,12 +20,12 @@
 ### Project setup
 
 1. Fork this repo
-1. Log into CircleCI with your GitHub (https://circleci.com/vcs-authorize/)
-1. Click on "Add Projects" on the sidebar
-1. Set up a project with the newly created fork
-1. Go to Project Settings > Environment Variables
+1. Edit the [environment variable](https://github.com/matchai/bird-box/blob/master/.github/main.workflow?short_path=5225be4#L9-L10) in `.github/main.workflow`:
+
+   - **GIST_ID:** The ID portion from your gist url: `https://gist.github.com/matchai/`**`6d5f84419863089a167387da62dd7081`**.
+
+1. Go to the repo **Settings > Secrets**
 1. Add the following environment variables:
 
-- **GIST_ID:** The ID portion from your gist url `https://gist.github.com/matchai/`**`6d5f84419863089a167387da62dd7081`**.
-- **GITHUB_TOKEN:** The GitHub token generated above.
+- **GH_TOKEN:** The GitHub token generated above.
 - **WAKATIME_API_KEY:** The API key for your WakaTime account.

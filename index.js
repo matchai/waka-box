@@ -4,7 +4,7 @@ const Octokit = require("@octokit/rest");
 
 const {
   GIST_ID: gistId,
-  GITHUB_TOKEN: githubToken,
+  GH_TOKEN: githubToken,
   WAKATIME_API_KEY: wakatimeApiKey
 } = process.env;
 
