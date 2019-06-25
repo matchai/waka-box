@@ -10,6 +10,6 @@ action "update-gist" {
   }
   secrets = [
     "GH_TOKEN",
-    "WAKATIME_API_KEY",
+    "WAKATIME_API_KEY"
   ]
 }
