@@ -1,0 +1,16 @@
+# For more Node.js and JavaScript information and examples, see
+# https://docs.semaphoreci.com/article/82-language-javascript-and-nodejs
+version: v1.0
+name: WakaBox Gist Updater
+agent:
+  machine:
+    type: e1-standard-2
+    os_image: ubuntu1804
+blocks:
+  - name: Gist Updater
+    task:
+      jobs:
+        - name: Update Gist
+          commands:
+            - npm install
+            - node index.js
