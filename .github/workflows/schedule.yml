@@ -1,6 +1,6 @@
 on:
   schedules:
-    - cron: "*/10 * * * *"
+    - cron: '*/10 * * * *'
 name: Update gist with WakaTime stats
 jobs:
   update-gist:
