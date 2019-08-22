@@ -20,7 +20,7 @@
 ### Project setup
 
 1. Fork this repo
-1. Edit the [environment variable](https://github.com/matchai/bird-box/blob/master/.github/main.workflow?short_path=5225be4#L9-L10) in `.github/main.workflow`:
+1. Edit the [environment variable](https://github.com/matchai/waka-box/blob/master/.github/workflows/schedule.yml#L13-L15) in `.github/workflows/schedule.yml`:
 
    - **GIST_ID:** The ID portion from your gist url: `https://gist.github.com/matchai/`**`6d5f84419863089a167387da62dd7081`**.
 
