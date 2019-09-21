@@ -60,10 +60,18 @@ async function updateGist(stats) {
 }
 
 function generateBarChart(percent, size) {
-  const empty = "░";
-  const full = "█";
-  const barsFull = Math.round(size * (percent / 100));
-  return full.repeat(barsFull).padEnd(size, empty);
+  const syms = "░▏▎▍▌▋▊▉█";
+
+  const frac = size * 8 * percent / 100;
+  const barsFull = Math.floor(frac / 8);
+  const semi = frac % 8;
+  const barsEmpty = size - barsFull - 1;
+
+  return [
+    syms.substring(8,9).repeat(barsFull),
+    syms.substring(semi,semi+1),
+    syms.substring(0,1).repeat(barsEmpty),
+  ].join('');
 }
 
 (async () => {
