@@ -26,7 +26,7 @@ async function updateGist(stats) {
   }
 
   const lines = [];
-  for (let i = 0; i < 5; i++) {
+  for (let i = 0; i < Math.min(stats.data.languages.length, 5); i++) {
     const data = stats.data.languages[i];
     const { name, percent, text: time } = data;
 
@@ -63,7 +63,7 @@ function generateBarChart(percent, size) {
   const frac = (size * 8 * percent) / 100;
   const barsFull = Math.floor(frac / 8);
   const semi = frac % 8;
-  const barsEmpty = size - barsFull - 1;
+  const barsEmpty = Math.max(size - barsFull - 1, 0);
 
   return [
     syms.substring(8, 9).repeat(barsFull),
