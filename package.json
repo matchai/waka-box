@@ -14,7 +14,7 @@
     "wakatime-client": "2.0.3"
   },
   "devDependencies": {
-    "@zeit/ncc": "^0.20.5",
+    "@zeit/ncc": "0.20.5",
     "husky": "3.1.0",
     "prettier": "1.19.1",
     "pretty-quick": "2.0.1"
