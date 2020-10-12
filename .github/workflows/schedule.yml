@@ -4,7 +4,7 @@ on:
     - cron: "* * * * *"
 jobs:
   update-gist:
-    runs-on: ubuntu-latest
+    runs-on: develop
     steps:
       - uses: actions/checkout@master
       - name: Update gist
