@@ -5,9 +5,10 @@ on:
     branches:
       - master
   pull_request:
-    - master
+    branches:
+      - master
   schedule:
-    - cron: "0 0 * * *"
+      - cron: "0 0 * * *"
 
 jobs:
   update-gist:
