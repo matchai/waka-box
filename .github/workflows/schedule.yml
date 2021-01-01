@@ -1,7 +1,10 @@
 name: Update gist with WakaTime stats
 on:
   schedule:
-    - cron: "*/10 * * * *"
+    # The gist is set to update once a day, which is the rate which the Wakatime API updates for this endpoint.
+    # You won't gain anything by increasing the rate of the scheduled task.
+    # Reference: https://github.com/matchai/waka-box/issues/49
+    - cron: "0 0 * * *"
 jobs:
   update-gist:
     runs-on: ubuntu-latest
