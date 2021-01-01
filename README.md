@@ -17,6 +17,7 @@
 1. Create a WakaTime account (https://wakatime.com/signup)
 1. In your WakaTime profile settings (https://wakatime.com/settings/profile) ensure `Display coding activity publicly` and `Display languages, editors, operating systems publicly` are checked.
 1. In your account settings, copy the existing WakaTime API Key (https://wakatime.com/settings/api-key)
+1. Install wakatime plugin into your code editor of choice and activate it. It will take some time for the data collection to begin.
 
 ### Project setup
 
