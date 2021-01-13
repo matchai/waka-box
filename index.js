@@ -36,7 +36,7 @@ async function updateGist(stats) {
     const { name, percent, text: time } = data;
 
     const line = [
-      trimRightStr(name, 11).padEnd(11),
+      trimRightStr(name, 10).padEnd(10),
       time.padEnd(14),
       generateBarChart(percent, 21),
       String(percent.toFixed(1)).padStart(5) + "%"
