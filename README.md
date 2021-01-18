@@ -21,7 +21,7 @@
 ### Project setup
 
 1. Fork this repo
-1. Edit the [environment variable](https://github.com/matchai/waka-box/blob/master/.github/workflows/schedule.yml#L13-L15) in `.github/workflows/schedule.yml`:
+1. Edit the [environment variable](https://github.com/matchai/waka-box/blob/master/.github/workflows/schedule.yml.example#L13-L15) in `.github/workflows/schedule.yml.example`:
 
    - **GIST_ID:** The ID portion from your gist url: `https://gist.github.com/matchai/`**`6d5f84419863089a167387da62dd7081`**.
 
@@ -29,3 +29,5 @@
 1. Add the following environment variables:
    - **GH_TOKEN:** The GitHub token generated above.
    - **WAKATIME_API_KEY:** The API key for your WakaTime account.
+1. Go to the repo **Actions** and activate the feature.
+1. Create a new workflow with `.github/workflows/schedule.yml.example` content.
