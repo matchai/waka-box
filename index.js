@@ -17,6 +17,11 @@ async function main() {
   await updateGist(stats);
 }
 
+function trimRightStr(str, len) {
+  // Ellipsis takes 3 positions, so the index of substring is 0 to total length - 3.
+  return str.length > len ? str.substring(0, len - 3) + "..." : str;
+}
+
 async function updateGist(stats) {
   let gist;
   try {
@@ -31,7 +36,7 @@ async function updateGist(stats) {
     const { name, percent, text: time } = data;
 
     const line = [
-      name.padEnd(11),
+      trimRightStr(name, 10).padEnd(10),
       time.padEnd(14),
       generateBarChart(percent, 21),
       String(percent.toFixed(1)).padStart(5) + "%"
