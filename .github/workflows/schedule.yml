@@ -6,10 +6,10 @@ jobs:
   update-gist:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@master
+      - uses: Saika-Z/waka-box@master
       - name: Update gist
-        uses: matchai/waka-box@master
+        uses: Saika-Z/waka-box@master
         env:
-          GH_TOKEN: ${{ secrets.GH_TOKEN }}
-          GIST_ID: 968220c97e8da1d047a9a480fa432e54
-          WAKATIME_API_KEY: ${{ secrets.WAKATIME_API_KEY }}
+          GH_TOKEN: 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
+          GIST_ID: https://gist.github.com/matchai/6d5f84419863089a167387da62dd7081  
+          WAKATIME_API_KEY: 1e69b805-f7ff-4799-bd44-d37d15c2d078
