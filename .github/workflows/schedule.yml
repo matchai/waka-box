@@ -9,10 +9,8 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@master
-      - name: Install
-        run: npm ci
       - name: Update gist
-        run: node ./index.js
+        uses: matchai/waka-box@master
         env:
           GH_TOKEN: ${{ secrets.GH_TOKEN }}
           GIST_ID: a4961d26f05adb6e8b4c8bf9fb9bdbe2
