@@ -45,7 +45,14 @@ async function updateGist(stats) {
     lines.push(line.join(" "));
   }
 
-  if (lines.length == 0) return;
+  let toWrite = "";
+  // It is possible that the user didn't write any code within the last week.
+  if (lines.length == 0) {
+    toWrite = "No programming activity detected within the last week.";
+  } else {
+    toWrite = lines.join("\n");
+  }
+  
 
   try {
     // Get original filename to update that same file
@@ -55,7 +62,7 @@ async function updateGist(stats) {
       files: {
         [filename]: {
           filename: `📊 Weekly development breakdown`,
-          content: lines.join("\n")
+          content: toWrite
         }
       }
     });
