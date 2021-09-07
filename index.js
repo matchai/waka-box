@@ -45,22 +45,39 @@ async function updateGist(stats) {
     lines.push(line.join(" "));
   }
 
-  if (lines.length == 0) return;
-
-  try {
-    // Get original filename to update that same file
-    const filename = Object.keys(gist.data.files)[0];
-    await octokit.gists.update({
-      gist_id: gistId,
-      files: {
-        [filename]: {
-          filename: `📊 Weekly development breakdown`,
-          content: lines.join("\n")
+  if (lines.length == 0) {
+    try {
+      // Get original filename to update that same file
+      const filename = Object.keys(gist.data.files)[0];
+      await octokit.gists.update({
+        gist_id: gistId,
+        files: {
+          [filename]: {
+            filename: `📊 Weekly development breakdown`,
+            content: "No data"
+          }
         }
-      }
-    });
-  } catch (error) {
-    console.error(`Unable to update gist\n${error}`);
+      });
+    } catch (error) {
+      console.error(`Unable to update gist\n${error}`);
+    }
+  } else {
+
+    try {
+      // Get original filename to update that same file
+      const filename = Object.keys(gist.data.files)[0];
+      await octokit.gists.update({
+        gist_id: gistId,
+        files: {
+          [filename]: {
+            filename: `📊 Weekly development breakdown`,
+            content: lines.join("\n")
+          }
+        }
+      });
+    } catch (error) {
+      console.error(`Unable to update gist\n${error}`);
+    }
   }
 }
 
