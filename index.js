@@ -1,6 +1,6 @@
 require("dotenv").config();
 const { WakaTimeClient, RANGE } = require("wakatime-client");
-const Octokit = require("@octokit/rest");
+const { Octokit } = require("@octokit/rest");
 
 const {
   GIST_ID: gistId,
