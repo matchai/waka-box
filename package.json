@@ -8,10 +8,10 @@
     "build": "ncc build index.js --out dist --minify"
   },
   "dependencies": {
-    "@octokit/rest": "16.36.0",
-    "axios": "0.19.0",
-    "dotenv": "8.2.0",
-    "wakatime-client": "2.0.3"
+    "@octokit/rest": "^19.0.5",
+    "axios": "^1.2.1",
+    "dotenv": "^16.0.3",
+    "wakatime-client": "^2.7.0"
   },
   "devDependencies": {
     "@zeit/ncc": "0.20.5",
