@@ -24,6 +24,7 @@
 1. Edit the [environment variable](https://github.com/matchai/waka-box/blob/master/.github/workflows/schedule.yml#L13-L15) in `.github/workflows/schedule.yml`:
 
    - **GIST_ID:** The ID portion from your gist url: `https://gist.github.com/matchai/`**`6d5f84419863089a167387da62dd7081`**.
+   - **WAKATIME_BASE_URL:** If you are using a WakaTime-compatible backend (e.g. Wakapi), change this to the corresponding base URL.
 
 1. Go to the repo **Settings > Secrets**
 1. Add the following environment variables:
