@@ -1,6 +1,9 @@
 name: Update gist with WakaTime stats
 on:
   schedule:
+    # The gist is set to update once a day, which is the rate which the Wakatime API updates for this endpoint.
+    # You won't gain anything by increasing the rate of the scheduled task.
+    # Reference: https://github.com/matchai/waka-box/issues/49
     - cron: "0 0 * * *"
   # Manual triggers with workflow_dispatch
   workflow_dispatch:
@@ -10,8 +13,8 @@ jobs:
     steps:
       - uses: actions/checkout@master
       - name: Update gist
-        uses: matchai/waka-box@master
+        uses: rlam3/waka-box@master
         env:
           GH_TOKEN: ${{ secrets.GH_TOKEN }}
-          GIST_ID: 968220c97e8da1d047a9a480fa432e54
+          GIST_ID: 9e951e17fd4f1c62a32fdc8d7eff3bed
           WAKATIME_API_KEY: ${{ secrets.WAKATIME_API_KEY }}
