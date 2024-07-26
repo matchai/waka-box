@@ -6,3 +6,11 @@ branding:
 runs:
   using: "node16"
   main: "dist/index.js"
+
+  waka:
+    user: your-wakatime-username
+    api_key: ${{ secrets.WAKATIME_API_KEY }}
+    commit_message: "Updated waka-readme-stats"
+    show_title: true
+    show_time: true
+    show_stats: true
